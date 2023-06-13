@@ -6,4 +6,5 @@
  *
  */
 module Crud {
+    requires java.desktop;
 }
