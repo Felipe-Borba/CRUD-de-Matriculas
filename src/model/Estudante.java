@@ -1,33 +1,27 @@
+package model;
+
 //inicio da classe pessoa :)
-public class Pessoa {
+public class Estudante {
 	private int id;
 	private String nome;
+    private int idade;
 	private String email;
-	private String endereço;
-	private String CEP;
+	private String endereco;
+	private String cep;
 	private String telefone;
 	private String usuario;
 	private String senha;
 	private String curso;
 	private String textolivre;
 	private Boolean ativo;
-	
-	public Pessoa(int id, String nome, String email, String CEP, String telefone, String usuario, String senha, String curso, String textolivre, Boolean ativo) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.CEP = CEP;
-        this.telefone = telefone;
-        this.usuario = usuario;
-        this.senha = senha;
-        this.curso = curso;
-        this.textolivre = textolivre;
-        this.ativo = ativo;
-        
-    }
+
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -37,7 +31,15 @@ public class Pessoa {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
+    public int getIdade() {
+        return idade;
+    }
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
     public String getEmail( ) {
     	return email;
     }
@@ -46,20 +48,20 @@ public class Pessoa {
     	this.email = email;
     }
     
-    public String getEndereço() {
-    	return endereço;
+    public String getEndereco() {
+    	return endereco;
     }
     
-    public void setEndereço(String endereço) {
-    	this.endereço = endereço;
+    public void setEndereco(String endereco) {
+    	this.endereco = endereco;
     }
     
-    public String getCEP() {
-    	return CEP;
+    public String getCep() {
+    	return cep;
     }
     
-    public void setCEP(String CEP ) {
-    	this.CEP = CEP;
+    public void setCep(String cep) {
+    	this.cep = cep;
     	
     }
     
@@ -111,6 +113,29 @@ public class Pessoa {
     
     public void setAtivo(Boolean ativo) {
     	this.ativo = ativo;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%d: %s, %s\n", id, nome, idade, email, cep, telefone, usuario, senha, curso, textolivre);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Estudante tarefa = (Estudante) obj;
+        return id == tarefa.id;
     }
 }
 
