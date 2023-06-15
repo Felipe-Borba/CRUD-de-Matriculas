@@ -53,7 +53,7 @@ public class EstudanteStorage {
 	}
 
 	public static void atualizar(Estudante estudante) {
-		final String query = "UPDATE estudante SET nome = ?, idade = ? WHERE id = ?";
+		final String query = "UPDATE estudante SET nome = ?, idade = ?, email = ?, endereco = ?, cep = ?, telefone = ?, usuario = ?, senha = ?, curso = ?, textolivre = ?, ativo = ? WHERE id = ?";
 
 		Connection conn = null;
 		PreparedStatement prepStmt = null;
@@ -64,7 +64,16 @@ public class EstudanteStorage {
 			prepStmt = conn.prepareStatement(query);
 			prepStmt.setString(1, estudante.getNome());
 			prepStmt.setInt(2, estudante.getIdade());
-			prepStmt.setInt(3, estudante.getId());
+			prepStmt.setString(3, estudante.getEmail());
+			prepStmt.setString(4, estudante.getEndereco());
+			prepStmt.setString(5, estudante.getCep());
+			prepStmt.setString(6, estudante.getTelefone());
+			prepStmt.setString(7, estudante.getUsuario());
+			prepStmt.setString(8, estudante.getSenha());
+			prepStmt.setString(9, estudante.getCurso());
+			prepStmt.setString(10, estudante.getTextolivre());
+			prepStmt.setBoolean(11, estudante.getAtivo());
+			prepStmt.setInt(12, estudante.getId());
 			prepStmt.execute();
 		} catch (Exception e) {
 			e.printStackTrace();

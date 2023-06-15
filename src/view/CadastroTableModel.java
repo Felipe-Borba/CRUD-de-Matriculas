@@ -9,7 +9,7 @@ import model.Estudante;
 
 public class CadastroTableModel extends AbstractTableModel {
     private List<Estudante> estudantes = new ArrayList<Estudante>();
-    private String[] colunas = new String[] { "Id", "Nome", "Idade", "Email", "Endereço", "CEP", "Telefone", "Usuario", "Senha", "Curso", "Texto Livre", "Ativo" };
+    private String[] colunas = new String[]{"Id", "Nome", "Idade", "Email", "Endereço", "CEP", "Telefone", "Usuario", "Senha", "Curso", "Texto Livre", "Ativo"};
 
     public CadastroTableModel(List<Estudante> estudantes) {
         this.estudantes = estudantes;
@@ -77,7 +77,7 @@ public class CadastroTableModel extends AbstractTableModel {
                     value = estudante.getTextolivre();
                     break;
                 case 11:
-                    value = String.valueOf(estudante.getAtivoComboBox().getSelectedItem());
+                    value = estudante.getAtivo() ? "Ativo" : "Desativado";
                     break;
                 default:
                     System.err.printf("[ERRO] Índice de coluna inválido: %d\n", columnIndex);

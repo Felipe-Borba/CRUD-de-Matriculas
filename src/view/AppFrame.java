@@ -50,7 +50,7 @@ public class AppFrame extends JFrame {
         cadastroListPanel = new CadastroListPanel(this);
         cardsPane.add(cadastroListPanel, CadastroListPanel.class.getName());
 
-//        cadastroFormPanel = new CadastroFormPanel(this);
-//        cardsPane.add(cadastroFormPanel, CadastroFormPanel.class.getName());
+        cadastroFormPanel = new CadastroFormPanel(this);
+        cardsPane.add(cadastroFormPanel, CadastroFormPanel.class.getName());
     }
 }

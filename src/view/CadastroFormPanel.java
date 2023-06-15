@@ -64,7 +64,7 @@ public class CadastroFormPanel extends JPanel {
                     senhaPss.setText("");
                     cursoTxt.setText("");
                     textolivreTxt.setText("");
-                    // ativoComboBox.setSelectedItem("Sim");
+                    ativoComboBox.setSelectedItem("Sim");
                 } else {
                     idTxt.setText(Integer.toString(estudante.getId()));
                     nomeTxt.setText(estudante.getNome());
@@ -77,7 +77,7 @@ public class CadastroFormPanel extends JPanel {
                     senhaPss.setText(estudante.getSenha());
                     cursoTxt.setText(estudante.getCurso());
                     textolivreTxt.setText(estudante.getTelefone());
-                    // ativoComboBox.setSelectedItem(estudante.isAtivo() ? "Sim" : "Não");
+                    ativoComboBox.setSelectedItem(estudante.getAtivo() ? "Sim" : "Não");
                 }
             }
         });
@@ -151,7 +151,7 @@ public class CadastroFormPanel extends JPanel {
 
         rotulo = new JLabel("Ativo");
         adicionarComponente(rotulo, 11, 0);
-        // ativoComboBox = new JComboBox<>(new String[]{"Sim", "Não"});
+        ativoComboBox = new JComboBox<>(new String[]{"Sim", "Não"});
         adicionarComponente(ativoComboBox, 11, 1);
 
         criarBotoes();
@@ -214,7 +214,7 @@ public class CadastroFormPanel extends JPanel {
         cancelarBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // frame.mostrarListaEstudantes(tableModel.getEstudante(tabela.getSelectedRow()));
+                 frame.mostrarListaEstudantes();
             }
         });
         panel.add(cancelarBtn);
