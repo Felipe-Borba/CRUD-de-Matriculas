@@ -9,7 +9,7 @@ import model.Estudante;
 
 public class CadastroTableModel extends AbstractTableModel {
     private List<Estudante> estudantes = new ArrayList<Estudante>();
-    private String[] colunas = new String[] { "Id", "Nome", "Descrição" };
+    private String[] colunas = new String[]{"Id", "Nome", "Idade", "E-mail", "endereço", "CEP", "Telefone", "usuário", "Senha", "Curso", "Texto livre", "Ativo"};
 
     public CadastroTableModel(List<Estudante> estudantes) {
         this.estudantes = estudantes;

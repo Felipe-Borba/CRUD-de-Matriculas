@@ -18,7 +18,7 @@ import javax.swing.event.ListSelectionListener;
 import model.Estudante;
 import model.EstudanteStorage;
 
-public class CadastroListPanel extends JPanel{
+public class CadastroListPanel extends JPanel {
     private AppFrame frame;
     private JButton novaTarefaBtn;
     private JButton editarTarefaBtn;
@@ -49,7 +49,7 @@ public class CadastroListPanel extends JPanel{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListaEstudantes(null);
+//                frame.mostrarListaEstudantes();
             }
         });
         panel.add(novaTarefaBtn);
@@ -59,7 +59,7 @@ public class CadastroListPanel extends JPanel{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListaEstudantes(CadastroTableModel.getEstudante(tabela.getSelectedRow()));
+//                frame.mostrarListaEstudantes(tableModel.getEstudante(tabela.getSelectedRow()));
             }
         });
         panel.add(editarTarefaBtn);

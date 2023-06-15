@@ -10,7 +10,7 @@ import java.util.List;
 public class EstudanteStorage {
 
 	public static void inserir(Estudante estudante) {
-		final String query = "INSERT INTO estudante (nome, descricao) VALUES (?, ?)";
+		final String query = "INSERT INTO estudante (nome, idade, email, endereco, cep, telefone, usuario, senha, curso, textolivre, ativo) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 		Connection conn = null;
 		PreparedStatement prepStmt = null;
@@ -21,7 +21,16 @@ public class EstudanteStorage {
 
 			prepStmt = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			prepStmt.setString(1, estudante.getNome());
-//			prepStmt.setString(2, estudante.getDescricao());
+			prepStmt.setInt(2, estudante.getIdade());
+			prepStmt.setString(3, estudante.getEmail());
+			prepStmt.setString(4, estudante.getEndereco());
+			prepStmt.setString(5, estudante.getCep());
+			prepStmt.setString(6, estudante.getTelefone());
+			prepStmt.setString(7, estudante.getUsuario());
+			prepStmt.setString(8, estudante.getSenha());
+			prepStmt.setString(9, estudante.getCurso());
+			prepStmt.setString(10, estudante.getTextolivre());
+			prepStmt.setBoolean(11, estudante.getAtivo());
 			prepStmt.execute();
 
 			rs = prepStmt.getGeneratedKeys();
