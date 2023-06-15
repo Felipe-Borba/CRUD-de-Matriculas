@@ -49,7 +49,7 @@ public class CadastroListPanel extends JPanel{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListaEstudantes(null);
+                frame.mostrarListaEstudantes();
             }
         });
         panel.add(novaTarefaBtn);
@@ -59,7 +59,7 @@ public class CadastroListPanel extends JPanel{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListaEstudantes(CadastroTableModel.getEstudante(tabela.getSelectedRow()));
+                frame.mostrarListaEstudantes();
             }
         });
         panel.add(editarTarefaBtn);

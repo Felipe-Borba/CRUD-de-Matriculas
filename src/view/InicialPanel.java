@@ -18,7 +18,7 @@ public class InicialPanel extends JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListaEstudantes(tableModel.getEstudante(tabela.getSelectedRow()));
+                frame.mostrarListaEstudantes();
             }
         });
         add(cadastrotarefasBtn);
