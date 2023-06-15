@@ -38,6 +38,7 @@ public class CadastroFormPanel extends JPanel {
     private JPasswordField senhaPss;
     private JTextField cursoTxt;
     private JTextArea textolivreTxt;
+    private JCheckBox ativoComboBox;
     private JButton salvarBtn;
     private JButton cancelarBtn;
 
@@ -66,7 +67,7 @@ public class CadastroFormPanel extends JPanel {
                     senhaPss.setText("");
                     cursoTxt.setText("");
                     textolivreTxt.setText("");
-
+                    ativoComboBox.setSelectedItem("Sim");
                 } else {
                     idTxt.setText(Integer.toString(estudante.getId()));
                     nomeTxt.setText(estudante.getNome());
@@ -79,6 +80,7 @@ public class CadastroFormPanel extends JPanel {
                     senhaPss.setText(estudante.getSenha());
                     cursoTxt.setText(estudante.getCurso());
                     textolivreTxt.setText(estudante.getTelefone());
+                    ativoComboBox.setSelectedItem(estudante.isAtivo() ? "Sim" : "Não");
                 }
             }
         });
@@ -151,6 +153,11 @@ public class CadastroFormPanel extends JPanel {
         JScrollPane scrollPane = new JScrollPane(textolivreTxt);
         adicionarComponente(scrollPane, 10, 1, 1, 5);
 
+        rotulo = new JLabel("Ativo");
+        adicionarComponente(rotulo, 11, 0);
+        ativoComboBox = new JComboBox<>(new String[]{"Sim", "Não"});
+        adicionarComponente(ativoComboBox, 11, 1);
+
         criarBotoes();
     }
 
@@ -199,7 +206,7 @@ public class CadastroFormPanel extends JPanel {
                 JOptionPane.showMessageDialog(CadastroFormPanel.this, "Informações do estudante foram salvas com sucesso!", AppFrame.titulo,
                         JOptionPane.INFORMATION_MESSAGE);
 
-                frame.mostrarListaEstudantes();
+                frame.mostrarListaEstudantes(tableModel.getEstudante(tabela.getSelectedRow()));
             }
         });
         panel.add(salvarBtn);
@@ -210,7 +217,7 @@ public class CadastroFormPanel extends JPanel {
         cancelarBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frame.mostrarListaEstudantes();
+                frame.mostrarListaEstudantes(tableModel.getEstudante(tabela.getSelectedRow()));
             }
         });
         panel.add(cancelarBtn);
