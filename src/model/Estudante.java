@@ -1,7 +1,5 @@
 package model;
 
-import javax.swing.*;
-
 //inicio da classe pessoa :)
 public class Estudante {
 	private int id;
@@ -15,7 +13,8 @@ public class Estudante {
 	private String senha;
 	private String curso;
 	private String textolivre;
-	private JComboBox<String> ativoComboBox;
+	private Boolean ativo;
+
 
     public int getId() {
         return id;
@@ -107,22 +106,15 @@ public class Estudante {
     public void setTextolivre(String textolivre) {
     	this.textolivre = textolivre;
     }
-
-    public JComboBox<String> getAtivoComboBox() {
-        return ativoComboBox;
+    
+    public Boolean getAtivo() {
+    	return ativo;
+    }
+    
+    public void setAtivo(Boolean ativo) {
+    	this.ativo = ativo;
     }
 
-    public boolean isAtivo() {
-        return ativoComboBox.getSelectedItem().equals("Sim");
-    }
-
-    public void setAtivo(boolean ativo) {
-        if (ativo) {
-            ativoComboBox.setSelectedItem("Sim");
-        } else {
-            ativoComboBox.setSelectedItem("Não");
-        }
-    }
     @Override
     public String toString() {
         return String.format("%d: %s, %s\n", id, nome, idade, email, cep, telefone, usuario, senha, curso, textolivre);

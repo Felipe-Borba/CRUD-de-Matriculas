@@ -14,7 +14,7 @@ public class AppFrame extends JFrame {
     private JPanel cardsPane;
 
     private InicialPanel inicialPanel;
-    private CadastroListPanel cadastroListPanel;
+    private TarefaListPanel tarefaListPanel;
     private CadastroFormPanel cadastroFormPanel;
 
     public AppFrame() {
@@ -37,13 +37,13 @@ public class AppFrame extends JFrame {
         setVisible(true);
     }
 
-    public void mostrarListaEstudantes(Estudante estudante) {
-        cadastroListPanel.recarregar();
-        layout.show(cardsPane, CadastroListPanel.class.getName());
+    public void mostrarListaEstudantes() {
+        tarefaListPanel.recarregar();
+        layout.show(cardsPane, TarefaListPanel.class.getName());
     }
 
     public void mostrarFormCadastro(Estudante estudante) {
-        cadastroFormPanel.setEstudante(estudante);
+        CadastroFormPanel.setEstudante(estudante);
         layout.show(cardsPane, CadastroFormPanel.class.getName());
     }
 
@@ -51,10 +51,10 @@ public class AppFrame extends JFrame {
         inicialPanel = new InicialPanel(this);
         cardsPane.add(inicialPanel, InicialPanel.class.getName());
 
-        cadastroListPanel = new CadastroListPanel(this);
-        cardsPane.add(cadastroListPanel, CadastroListPanel.class.getName());
+        tarefaListPanel = new TarefaListPanel(this);
+        cardsPane.add(tarefaListPanel, TarefaListPanel.class.getName());
 
-        cadastroFormPanel = new CadastroFormPanel(this);
+        CadastroFormPanel = new CadastroFormPanel(this);
         cardsPane.add(cadastroFormPanel, CadastroFormPanel.class.getName());
     }
 }
