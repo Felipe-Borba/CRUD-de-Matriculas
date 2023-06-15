@@ -87,3 +87,8 @@ local.properties
 #.project
 .classpath
 .project
+
+.vscode
+.idea
+.out
+*.iml
