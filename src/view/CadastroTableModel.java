@@ -77,7 +77,7 @@ public class CadastroTableModel extends AbstractTableModel {
                     value = estudante.getTextolivre();
                     break;
                 case 11:
-                    value = String.valueOf(estudante.getAtivo());
+                    value = String.valueOf(estudante.getAtivoComboBox().getSelectedItem());
                     break;
                 default:
                     System.err.printf("[ERRO] Índice de coluna inválido: %d\n", columnIndex);
