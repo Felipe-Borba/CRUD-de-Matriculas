@@ -139,9 +139,9 @@ public class CadastroFormPanel extends JPanel {
         adicionarComponente(senhaPss, 8, 1);
 
         rotulo = new JLabel("Curso");
-        adicionarComponente(rotulo, 8, 0);
+        adicionarComponente(rotulo, 9, 0);
         cursoTxt = new JTextField(30);
-        adicionarComponente(cursoTxt, 8, 1);
+        adicionarComponente(cursoTxt, 9, 1);
 
         rotulo = new JLabel("Texto Livre");
         adicionarComponente(rotulo, 10, 0);
@@ -150,9 +150,9 @@ public class CadastroFormPanel extends JPanel {
         adicionarComponente(scrollPane, 10, 1, 1, 5);
 
         rotulo = new JLabel("Ativo");
-        adicionarComponente(rotulo, 11, 0);
+        adicionarComponente(rotulo, 16, 0);
         ativoComboBox = new JComboBox<>(new String[]{"Sim", "Não"});
-        adicionarComponente(ativoComboBox, 11, 1);
+        adicionarComponente(ativoComboBox, 16, 1);
 
         criarBotoes();
     }
@@ -165,7 +165,7 @@ public class CadastroFormPanel extends JPanel {
         criarSalvarBtn(btnPanel);
         criarCancelarBtn(btnPanel);
 
-        adicionarComponente(btnPanel, 7, 1, 2, 1);
+        adicionarComponente(btnPanel, 17, 1, 2, 1);
     }
 
     private void criarSalvarBtn(JPanel panel) {
@@ -203,7 +203,7 @@ public class CadastroFormPanel extends JPanel {
                         "Informações do estudante foram salvas com sucesso!", AppFrame.titulo,
                         JOptionPane.INFORMATION_MESSAGE);
 
-                // frame.mostrarListaEstudantes();
+                frame.mostrarListaEstudantes();
             }
         });
         panel.add(salvarBtn);
@@ -214,7 +214,7 @@ public class CadastroFormPanel extends JPanel {
         cancelarBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                 frame.mostrarListaEstudantes();
+                frame.mostrarListaEstudantes();
             }
         });
         panel.add(cancelarBtn);
