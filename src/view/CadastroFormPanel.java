@@ -178,6 +178,7 @@ public class CadastroFormPanel extends JPanel {
                     estudante.setNome(nomeTxt.getText());
                     estudante.setIdade(Integer.parseInt(idadeTxt.getText()));
                     estudante.setEmail(emailTxt.getText());
+                    estudante.setEndereco(enderecoTxt.getText());
                     estudante.setCep(cepTxt.getText());
                     estudante.setTelefone(telefoneTxt.getText());
                     estudante.setUsuario(usuarioTxt.getText());
@@ -190,6 +191,7 @@ public class CadastroFormPanel extends JPanel {
                     estudante.setNome(nomeTxt.getText());
                     estudante.setIdade(Integer.parseInt(idadeTxt.getText()));
                     estudante.setEmail(emailTxt.getText());
+                    estudante.setEndereco(enderecoTxt.getText());
                     estudante.setCep(cepTxt.getText());
                     estudante.setTelefone(telefoneTxt.getText());
                     estudante.setUsuario(usuarioTxt.getText());
