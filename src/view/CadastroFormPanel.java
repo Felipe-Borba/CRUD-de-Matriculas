@@ -1,27 +1,22 @@
 package view;
 
-import java.awt.FlowLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import model.Estudante;
+import model.EstudanteStorage;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
-
-import javax.swing.*;
-
-import model.Estudante;
-import model.EstudanteStorage;
+import java.util.ArrayList;
 
 public class CadastroFormPanel extends JPanel {
 
     private static final Insets FIELD_INSETS = new Insets(5, 10, 0, 0);
 
     private Estudante estudante;
-
     private AppFrame frame;
-
     private GridBagLayout layout;
     private GridBagConstraints constraints;
 
@@ -36,6 +31,15 @@ public class CadastroFormPanel extends JPanel {
     private JPasswordField senhaPss;
     private JTextField cursoTxt;
     private JTextArea textolivreTxt;
+
+    private interface AtivoLabel {
+        public static final String ATIVO = "Sim";
+        public static final String DESATIVO = "Não";
+        public static String[] labels = {
+                ATIVO, DESATIVO
+        };
+    }
+
     private JComboBox ativoComboBox;
     private JButton salvarBtn;
     private JButton cancelarBtn;
@@ -64,7 +68,7 @@ public class CadastroFormPanel extends JPanel {
                     senhaPss.setText("");
                     cursoTxt.setText("");
                     textolivreTxt.setText("");
-                    ativoComboBox.setSelectedItem("Sim");
+                    ativoComboBox.setSelectedItem(AtivoLabel.ATIVO);
                 } else {
                     idTxt.setText(Integer.toString(estudante.getId()));
                     nomeTxt.setText(estudante.getNome());
@@ -77,7 +81,7 @@ public class CadastroFormPanel extends JPanel {
                     senhaPss.setText(estudante.getSenha());
                     cursoTxt.setText(estudante.getCurso());
                     textolivreTxt.setText(estudante.getTelefone());
-                    ativoComboBox.setSelectedItem(estudante.getAtivo() ? "Sim" : "Não");
+                    ativoComboBox.setSelectedItem(estudante.getAtivo() ? AtivoLabel.ATIVO : AtivoLabel.DESATIVO);
                 }
             }
         });
@@ -151,7 +155,7 @@ public class CadastroFormPanel extends JPanel {
 
         rotulo = new JLabel("Ativo");
         adicionarComponente(rotulo, 16, 0);
-        ativoComboBox = new JComboBox<>(new String[]{"Sim", "Não"});
+        ativoComboBox = new JComboBox(AtivoLabel.labels);
         adicionarComponente(ativoComboBox, 16, 1);
 
         criarBotoes();
@@ -185,6 +189,7 @@ public class CadastroFormPanel extends JPanel {
                     estudante.setSenha(senhaPss.getText());
                     estudante.setCurso(cursoTxt.getText());
                     estudante.setTextolivre(textolivreTxt.getText());
+                    estudante.setAtivo(ativoComboBox.getSelectedItem() == AtivoLabel.ATIVO);
                     EstudanteStorage.inserir(estudante);
                 } else {
                     estudante.setId(Integer.parseInt(idTxt.getText()));
@@ -198,6 +203,7 @@ public class CadastroFormPanel extends JPanel {
                     estudante.setSenha(senhaPss.getText());
                     estudante.setCurso(cursoTxt.getText());
                     estudante.setTextolivre(textolivreTxt.getText());
+                    estudante.setAtivo(ativoComboBox.getSelectedItem() == AtivoLabel.ATIVO);
                     EstudanteStorage.atualizar(estudante);
                 }
 
