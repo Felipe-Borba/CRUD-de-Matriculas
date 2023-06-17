@@ -15,8 +15,6 @@ public class Estudante {
     private String curso;
     private String textolivre;
     private boolean ativo;
-    private JComboBox<String> ativoComboBox;
-
 
     public int getId() {
         return id;
@@ -109,26 +107,12 @@ public class Estudante {
         this.textolivre = textolivre;
     }
 
-
-    public JComboBox<String> getAtivoComboBox() {
-        return ativoComboBox;
-    }
-
     public boolean getAtivo() {
         return this.ativo;
     }
 
-    public boolean isAtivo() {
-        return ativoComboBox.getSelectedItem().equals("Sim");
-    }
-
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
-        if (ativo) {
-            ativoComboBox.setSelectedItem("Sim");
-        } else {
-            ativoComboBox.setSelectedItem("Não");
-        }
     }
 
     @Override
