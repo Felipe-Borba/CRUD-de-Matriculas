@@ -42,7 +42,7 @@ public class CadastroListPanel extends JPanel {
     private void criarComandosPanel() {
         JPanel panel = new JPanel();
         FlowLayout layout = (FlowLayout) panel.getLayout();
-        layout.setAlignment(FlowLayout.RIGHT);
+        layout.setAlignment(FlowLayout.CENTER);
 
         novaTarefaBtn = new JButton("Criar Nova");
         novaTarefaBtn.addActionListener(new ActionListener() {
@@ -104,6 +104,7 @@ public class CadastroListPanel extends JPanel {
         });
 
         JScrollPane scrollPane = new JScrollPane(tabela);
+        scrollPane.setPreferredSize(new Dimension(1000, 500));
         panel.add(scrollPane);
 
         add(panel, BorderLayout.CENTER);
